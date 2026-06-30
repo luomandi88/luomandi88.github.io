@@ -273,19 +273,16 @@ main{
 }
 .qr-card{
   background:var(--qr-bg);border:1px solid var(--bd);border-radius:16px;
-  padding:24px 28px;text-align:center;transition:all .3s;
-  cursor:pointer;user-select:none;
+  padding:24px 28px;text-align:center;transition:all .3s
 }
 .qr-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow)}
 .qr-card h4{font-size:15px;font-weight:700;margin-bottom:16px;color:var(--text)}
 .qr-card .qr-box{
-  width:180px;height:0;border-radius:12px;overflow:hidden;
-  margin:0 auto;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 2px 12px rgba(0,0,0,.08);opacity:0;
-  transition:height .3s,opacity .3s,margin .3s,padding .3s;
-}
-.qr-card.show .qr-box{
-  height:180px;opacity:1;margin:0 auto 12px;padding:10px;background:#fff;
+  width:180px;height:180px;border-radius:12px;overflow:hidden;
+  margin:0 auto 12px;padding:10px;background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+  transition:all .3s
 }
 .qr-card .qr-box img,.qr-card .qr-box canvas{width:100%;height:100%;object-fit:cover}
 .qr-card .qr-note{font-size:11px;color:var(--muted);line-height:1.6}
@@ -511,32 +508,30 @@ footer a:hover{text-decoration:underline}
 
 <!-- Contact Section -->
 <section class="contact-section" id="contact">
-  <div class="contact-title">📬 联系我</div>
-  <div class="contact-subtitle">如有问题或建议，欢迎通过以下方式联系</div>
+  <div class="contact-title">📬 联系作者</div>
+  <div class="contact-subtitle">如需沟通，可通过以下方式联系</div>
   <div class="qr-container">
-    <!-- 公众号二维码 -->
-    <div class="qr-card" onclick="toggleQR(this)">
-      <h4>📢 微信公众号</h4>
+    <div class="qr-card">
+      <h4>📢 微信交流</h4>
       <div class="qr-box">
-        <img src="qrcode-gzh.jpg" alt="微信公众号二维码" />
+        <img src="qrcode-gzh.jpg" alt="微信二维码" />
       </div>
-      <div class="qr-note">点击查看二维码</div>
+      <div class="qr-note">长按识别</div>
     </div>
 
-    <!-- 微信好友二维码 -->
-    <div class="qr-card" onclick="toggleQR(this)">
-      <h4>💬 微信好友</h4>
+    <div class="qr-card">
+      <h4>💬 商务合作</h4>
       <div class="qr-box">
-        <img src="qrcode-wechat.jpg" alt="微信好友二维码" />
+        <img src="qrcode-wechat.jpg" alt="微信二维码" />
       </div>
-      <div class="qr-note">点击查看二维码</div>
+      <div class="qr-note">长按识别</div>
     </div>
   </div>
 </section>
 
 <!-- Footer -->
 <footer>
-  <span>本站工具免费使用 · 内容仅在本地处理 · <a href="#contact">联系我们</a></span>
+  <span>本站工具免费使用 · 内容仅在本地处理 · <a href="#contact">关于作者</a></span>
 </footer>
 
 <script>
@@ -1157,10 +1152,6 @@ function initDivider() {
 }
 
 // Toggle QR code visibility
-function toggleQR(card) {
-  card.classList.toggle('show');
-}
-
 // ═══════════════════════════════════════════
 // 初始化
 // ═══════════════════════════════════════════
