@@ -277,14 +277,17 @@ main{
 }
 .qr-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow)}
 .qr-card h4{font-size:15px;font-weight:700;margin-bottom:16px;color:var(--text)}
-.qr-card .qr-box{
-  width:180px;height:180px;border-radius:12px;overflow:hidden;
-  margin:0 auto 12px;padding:10px;background:#fff;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 2px 12px rgba(0,0,0,.08);
-  transition:all .3s
+.qr-card .email-box{
+  padding:20px 16px;margin:0 auto 12px;
+  background:var(--ibg);border-radius:12px;
+  border:2px dashed var(--bd);
 }
-.qr-card .qr-box img,.qr-card .qr-box canvas{width:100%;height:100%;object-fit:cover}
+.qr-card .email-box a{
+  font-size:16px;font-weight:700;color:var(--accent);
+  text-decoration:none;word-break:break-all;
+  transition:color .2s
+}
+.qr-card .email-box a:hover{color:var(--text)}
 .qr-card .qr-note{font-size:11px;color:var(--muted);line-height:1.6}
 
 /* ========== Footer ========== */
@@ -509,22 +512,14 @@ footer a:hover{text-decoration:underline}
 <!-- Contact Section -->
 <section class="contact-section" id="contact">
   <div class="contact-title">📬 联系作者</div>
-  <div class="contact-subtitle">如需沟通，可通过以下方式联系</div>
+  <div class="contact-subtitle">如需沟通，请发送邮件联系</div>
   <div class="qr-container">
     <div class="qr-card">
-      <h4>📢 微信交流</h4>
-      <div class="qr-box">
-        <img src="qrcode-gzh.jpg" alt="微信二维码" />
+      <h4>📧 电子邮箱</h4>
+      <div class="email-box">
+        <a href="mailto:luojun4158@163.com">luojun4158@163.com</a>
       </div>
-      <div class="qr-note">长按识别</div>
-    </div>
-
-    <div class="qr-card">
-      <h4>💬 商务合作</h4>
-      <div class="qr-box">
-        <img src="qrcode-wechat.jpg" alt="微信二维码" />
-      </div>
-      <div class="qr-note">长按识别</div>
+      <div class="qr-note">点击邮箱地址直接发送邮件</div>
     </div>
   </div>
 </section>
