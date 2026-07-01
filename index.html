@@ -262,41 +262,19 @@ main{
   font-family:'Cascadia Code',monospace;font-size:10px;color:var(--text)
 }
 
-/* ========== Contact Section ========== */
-.contact-section{
-  padding:48px 24px 40px;text-align:center;
-  background:var(--panel);border-top:1px solid var(--bd);transition:background .3s
-}
-.contact-title{font-size:22px;font-weight:800;margin-bottom:6px}
-.contact-subtitle{font-size:13px;color:var(--muted);margin-bottom:32px}
-.qr-container{
-  display:flex;justify-content:center;gap:48px;flex-wrap:wrap;max-width:700px;margin:0 auto
-}
-.qr-card{
-  background:var(--qr-bg);border:1px solid var(--bd);border-radius:16px;
-  padding:24px 28px;text-align:center;transition:all .3s
-}
-.qr-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px var(--shadow)}
-.qr-card h4{font-size:15px;font-weight:700;margin-bottom:16px;color:var(--text)}
-.qr-card .email-box{
-  padding:20px 16px;margin:0 auto 12px;
-  background:var(--ibg);border-radius:12px;
-  border:2px dashed var(--bd);
-}
-.qr-card .email-box a{
-  font-size:16px;font-weight:700;color:var(--accent);
-  text-decoration:none;word-break:break-all;
-  transition:color .2s
-}
-.qr-card .email-box a:hover{color:var(--text)}
-.qr-card .qr-note{font-size:11px;color:var(--muted);line-height:1.6}
-
 /* ========== Footer ========== */
 footer{
   text-align:center;padding:14px 24px;font-size:11px;color:var(--muted);
   border-top:1px solid var(--bd);background:var(--panel);transition:background .3s
 }
 footer a{color:var(--accent);text-decoration:none;font-weight:600}
+footer a:hover{text-decoration:underline}
+.author-popup{
+  display:none;margin-top:8px;padding:8px 16px;
+  font-size:12px;color:var(--text);background:var(--card);
+  border-radius:8px;border:1px solid var(--bd);transition:all .2s
+}
+.author-popup.show{display:inline-block}
 footer a:hover{text-decoration:underline}
 
 /* ========== Divider ========== */
@@ -318,13 +296,8 @@ footer a:hover{text-decoration:underline}
   #panel-tpl{flex:0 0 auto!important}
   .divider{display:none}
   #md-input{min-height:250px!important}
-  .hero h1{font-size:24px}
-  .qr-container{gap:24px}
 }
 </style>
-<!-- QRCode library -->
-<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js">
-</script>
 </head>
 <body>
 <header>
@@ -510,24 +483,10 @@ footer a:hover{text-decoration:underline}
   </div>
 </main>
 
-<!-- Contact Section -->
-<section class="contact-section" id="contact">
-  <div class="contact-title">📬 联系作者</div>
-  <div class="contact-subtitle">如需沟通，请发送邮件联系</div>
-  <div class="qr-container">
-    <div class="qr-card">
-      <h4>📧 电子邮箱</h4>
-      <div class="email-box">
-        <a href="mailto:luojun4158@163.com">luojun4158@163.com</a>
-      </div>
-      <div class="qr-note">点击邮箱地址直接发送邮件</div>
-    </div>
-  </div>
-</section>
-
 <!-- Footer -->
 <footer>
-  <span>本站工具免费使用 · 内容仅在本地处理 · <a href="#contact">关于作者</a></span>
+  <span>本站工具免费使用 · 内容仅在本地处理 · <a href="javascript:void(0)" id="about-author-link">关于作者</a></span>
+  <div class="author-popup" id="author-popup">作者：果哥 &nbsp; luojun4158@163.com</div>
 </footer>
 
 <script>
@@ -1169,6 +1128,16 @@ function init() {
   // Init drag drop & divider
   initDragDrop();
   initDivider();
+
+  // Init author popup toggle
+  const aboutLink = document.getElementById('about-author-link');
+  const authorPopup = document.getElementById('author-popup');
+  if (aboutLink && authorPopup) {
+    aboutLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      authorPopup.classList.toggle('show');
+    });
+  }
 }
 
 init();
